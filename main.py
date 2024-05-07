@@ -114,4 +114,7 @@ async def data_post(request: Request, response: Response):
         response.status_code = 400
         return {"error": {"message": "unable to process", "detail": f"{e}"}}
 
-    return {"data": df_to_xlb(data)}
+@app.post("/echo/xlba")
+async def data_post(request: Request, response: Response):
+    from datetime import datetime
+    return {"data": {"A": {0: datetime.now()}}}
